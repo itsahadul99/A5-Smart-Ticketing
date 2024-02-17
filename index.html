@@ -13,6 +13,45 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Testing.... </h1>
+    <section class="container mx-auto my-4 lg:my-8">
+        <!-- Navigation bar section  -->
+        <nav>
+            <div class="navbar bg-base-100">
+                <div class="navbar-start">
+                  <a class="text-3xl font-extrabold">R-Ticket</a>
+                </div>
+                <div class="navbar-center hidden lg:flex">
+                  <ul class="menu menu-horizontal px-1 text-lg gap-4">
+                    <li><a>Home</a></li>
+                    <li><a>About</a></li>
+                    <li><a>Destination</a></li>
+                    <li><a>Search</a></li>
+                  </ul>
+                </div>
+                <div class="navbar-end ">
+                    <button class=" text-lg flex justify-center items-center gap-2 btn text-[#1DD100]">
+                        Bus
+                        <img src="./images/bus-icon.png" alt="bus-logo">
+                    </button>
+                </div>
+              </div>
+        </nav>
+        <!-- Banner section start here -->
+        <div class=" mt-5 lg:mt-10">
+            <div class="hero h-[80vh] lg:h-[100vh] rounded-2xl bg-no-repeat bg-cover" style="background-image: url(./images/banner.png);">
+                <div class="hero-content text-center text-neutral-content">
+                  <div class="w-3/4 space-y-5 lg:space-y-10">
+                    <h1 class="mb-5 text-xl lg:text-5xl font-bold">End-to-End Travel with <br>
+                    <span class="text-[#1DD100]">
+                        R Paribahan
+                    </span>
+                </h1>
+                    <p class="mb-5 text-xs lg:text-lg">Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .</p>
+                    <button class="btn border-none text-xs lg:text-sm bg-[#1DD100]">Buy Tickets</button>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </section>
 </body>
 </html>
