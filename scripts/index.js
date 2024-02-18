@@ -1,21 +1,14 @@
-function setBackgroundColor(elementId){
-    const element = document.getElementById(elementId);
-    element.style.backgroundColor = '#1DD100'
-}
-function getElementById (elementId){
-    const element = document.getElementById(elementId);
-    return element;
-}
+
 // buy button clicked event 
-document.getElementById('buy-ticket').addEventListener('click', function(){
+document.getElementById('buy-ticket').addEventListener('click', function () {
     const ticketSection = getElementById('ticket-section');
     ticketSection.scrollIntoView()
 })
 // button selection
 const ticketPrice = 550;
 const buttonsTicket = document.getElementsByClassName("btn-ticket");
-for(const buttonTicket of buttonsTicket){
-    buttonTicket.addEventListener('click', function(){
+for (const buttonTicket of buttonsTicket) {
+    buttonTicket.addEventListener('click', function () {
         const button = buttonTicket.innerText;
         setBackgroundColor(button)
         // decrease the total seat number and show it
@@ -56,47 +49,29 @@ for(const buttonTicket of buttonsTicket){
         const grandTotalPrice = grandTotalNumber + ticketPrice;
         grandTotalElement.innerText = grandTotalPrice;
     })
-} 
+}
 
 // coupon apply button disable
 const couponApplyButton = getElementById('coupon-button');
-couponApplyButton.addEventListener('click', function(){
+couponApplyButton.addEventListener('click', function () {
     const inputField = getElementById('coupon-field');
     const inputFieldText = inputField.value.toLowerCase();
     const allCouponCode = getElementById('New15').innerText.toLowerCase();
     const coupleCoupon = getElementById('Couple20').innerText.toLowerCase();
     // cheek if input field text is matched all coupon code 
-    if(inputFieldText === allCouponCode){
-        const grandTotalElement = getElementById('grand-total');
-        const grandTotalNumber = parseInt(grandTotalElement.innerText);
-        const discountAllCoupon = parseInt(grandTotalNumber * 0.15);
-        const finalGrandTotal = grandTotalNumber - discountAllCoupon;
-        grandTotalElement.innerText = finalGrandTotal;
-        const totalPriceElement = getElementById('price-container');
-        const h1 = document.createElement('h1');
-        h1.innerText = "Discount";
-        const h2 = document.createElement('h1');
-        h2.innerText = discountAllCoupon;
-        totalPriceElement.appendChild(h1)
-        totalPriceElement.appendChild(h2)
-        couponApplyButton.classList.add('hidden');
-        inputField.classList.add('hidden');
+    if (inputFieldText === allCouponCode) {
+        discountFunction(0.15)
+        hiddenElement('coupon-button');
+        hiddenElement('coupon-field');
     }
-    else if(inputFieldText === coupleCoupon){
-    const grandTotalElement = getElementById('grand-total');
-    const grandTotalNumber = parseInt(grandTotalElement.innerText);
-    const discountAllCoupon = parseInt(grandTotalNumber * 0.20);
-    const finalGrandTotal = grandTotalNumber - discountAllCoupon;
-    grandTotalElement.innerText = finalGrandTotal;
-    const totalPriceElement = getElementById('price-container');
-    const h1 = document.createElement('h1');
-    h1.innerText = "Discount";
-    const h2 = document.createElement('h1');
-    h2.innerText = discountAllCoupon;
-    totalPriceElement.appendChild(h1)
-    totalPriceElement.appendChild(h2)
-    couponApplyButton.classList.add('hidden');
-    inputField.classList.add('hidden');
-
+    else if (inputFieldText === coupleCoupon) {
+        discountFunction(0.20)
+        hiddenElement('coupon-button');
+        hiddenElement('coupon-field');
+    }
+    else {
+        alert('Please enter valid coupon code')
+        inputField.value = '';
     }
 });
+
