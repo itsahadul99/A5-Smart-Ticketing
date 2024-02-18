@@ -91,7 +91,7 @@
                         <img src="./images/cupon-devider.png" alt="">
                     </div>
                     <div class="flex flex-col justify-center items-center">
-                        <h1 class="text-3xl font-bold mb-5 uppercase">New15%</h1>
+                        <h1 id="New15" class="text-3xl font-bold mb-5 uppercase font-inter">New15</h1>
                         <p class="text-lg opacity-50">Coupon Code</p>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                         <img src="./images/cupon-devider.png" alt="">
                     </div>
                     <div class="flex flex-col justify-center items-center">
-                        <h1 class="text-3xl font-bold mb-5">Couple 20</h1>
+                        <h1  id="Couple20" class="text-3xl font-bold mb-5 font-inter">Couple20</h1>
                         <p class="text-lg opacity-50">Coupon Code</p>
                     </div>
                 </div>
@@ -265,14 +265,14 @@
                             <h3 id="ticket-price" class="text-sm font-inter font-medium"><span class="font-bold text-lg">Price</span></h3>
                         </div>
                         <hr class=" mt-5 bg-gray-400">
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-52">
+                        <div id="price-container" class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-52">
                             <h1 class="text-lg font-bold">Total Price</h1>
                             <p class="font-medium text-black">BDT <span id="total-price">0</span></p>
                         </div>
                         <div class="flex flex-col lg:flex-row">
-                            <input class="py-4 px-10 bg-white shadow-lg rounded-md" type="text"
+                            <input id="coupon-field" class="py-4 px-10 bg-white shadow-lg rounded-md" type="text"
                                 placeholder="Enter your coupon code">
-                            <button class="py-4 rounded-md font-bold text-white bg-[#1DD100] px-5">Apply</button>
+                            <button id="coupon-button" class=" py-4 rounded-md font-bold text-white bg-[#1DD100] px-5">Apply</button>
                         </div>
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-52">
                             <h1 class="text-lg font-bold">Grand Total</h1>

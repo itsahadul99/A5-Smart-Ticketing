@@ -55,6 +55,48 @@ for(const buttonTicket of buttonsTicket){
         const grandTotalNumber = parseInt(grandTotalElement.innerText);
         const grandTotalPrice = grandTotalNumber + ticketPrice;
         grandTotalElement.innerText = grandTotalPrice;
-
     })
 } 
+
+// coupon apply button disable
+const couponApplyButton = getElementById('coupon-button');
+couponApplyButton.addEventListener('click', function(){
+    const inputField = getElementById('coupon-field');
+    const inputFieldText = inputField.value.toLowerCase();
+    const allCouponCode = getElementById('New15').innerText.toLowerCase();
+    const coupleCoupon = getElementById('Couple20').innerText.toLowerCase();
+    // cheek if input field text is matched all coupon code 
+    if(inputFieldText === allCouponCode){
+        const grandTotalElement = getElementById('grand-total');
+        const grandTotalNumber = parseInt(grandTotalElement.innerText);
+        const discountAllCoupon = parseInt(grandTotalNumber * 0.15);
+        const finalGrandTotal = grandTotalNumber - discountAllCoupon;
+        grandTotalElement.innerText = finalGrandTotal;
+        const totalPriceElement = getElementById('price-container');
+        const h1 = document.createElement('h1');
+        h1.innerText = "Discount";
+        const h2 = document.createElement('h1');
+        h2.innerText = discountAllCoupon;
+        totalPriceElement.appendChild(h1)
+        totalPriceElement.appendChild(h2)
+        couponApplyButton.classList.add('hidden');
+        inputField.classList.add('hidden');
+    }
+    else if(inputFieldText === coupleCoupon){
+    const grandTotalElement = getElementById('grand-total');
+    const grandTotalNumber = parseInt(grandTotalElement.innerText);
+    const discountAllCoupon = parseInt(grandTotalNumber * 0.20);
+    const finalGrandTotal = grandTotalNumber - discountAllCoupon;
+    grandTotalElement.innerText = finalGrandTotal;
+    const totalPriceElement = getElementById('price-container');
+    const h1 = document.createElement('h1');
+    h1.innerText = "Discount";
+    const h2 = document.createElement('h1');
+    h2.innerText = discountAllCoupon;
+    totalPriceElement.appendChild(h1)
+    totalPriceElement.appendChild(h2)
+    couponApplyButton.classList.add('hidden');
+    inputField.classList.add('hidden');
+
+    }
+});
