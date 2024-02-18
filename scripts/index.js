@@ -28,6 +28,22 @@ for(const buttonTicket of buttonsTicket){
         const selectSeatNumber = parseInt(selectSeatElement.innerText);
         const selectSeatIncrease = selectSeatNumber + 1;
         selectSeatElement.innerText = selectSeatIncrease;
+        const ticketName = getElementById('ticket-name');
+        const p = document.createElement('p');
+        p.innerText = buttonTicket.innerText;
+        ticketName.appendChild(p);
+        const ticketClass = getElementById('ticket-class')
+        const p2 = document.createElement('p');
+        p2.innerText = 'Economy';
+        ticketClass.appendChild(p2);
+        const ticketPriceShower = getElementById('ticket-price');
+        const p3 = document.createElement('p');
+        p3.innerText = ticketPrice;
+        ticketPriceShower.appendChild(p3);
+        const totalPriceElement = getElementById('total-price');
+        const totalPriceNumber = parseInt(totalPriceElement.innerText);
+        const totalTicketPrice = totalPriceNumber + ticketPrice;
+        totalPriceElement.innerText = totalTicketPrice;
 
     })
 } 
