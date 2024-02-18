@@ -1,8 +1,7 @@
-
 // buy button clicked event 
 document.getElementById('buy-ticket').addEventListener('click', function () {
     const ticketSection = getElementById('ticket-section');
-    ticketSection.scrollIntoView()
+    ticketSection.scrollIntoView();
 })
 // button selection
 let counter = 1;
@@ -84,14 +83,3 @@ couponApplyButton.addEventListener('click', function () {
         inputField.value = '';
     }
 });
-
-// passenger information
-
-const nextButton = document.getElementById('next-button');
-nextButton.addEventListener('click', function () {
-    congratulateMessage();
-})
-const continueButton = document.getElementById('continue');
-continueButton.addEventListener('click', function () {
-    continueBuying();
-})

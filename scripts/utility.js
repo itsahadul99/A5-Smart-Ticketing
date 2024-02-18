@@ -34,17 +34,3 @@ function showElement(elementId){
     const element = document.getElementById(elementId)
     element.classList.remove('hidden');
 }
-function congratulateMessage(){
-    hiddenElement('header-section');
-    hiddenElement('offer-section');
-    hiddenElement('ticket-section');
-    hiddenElement('footer-section');
-    showElement('con-section');
-}
-function continueBuying(){
-    showElement('header-section');
-    showElement('offer-section');
-    showElement('ticket-section');
-    showElement('footer-section');
-    hiddenElement('con-section');
-}
