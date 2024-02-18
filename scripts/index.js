@@ -8,9 +8,10 @@ document.getElementById('buy-ticket').addEventListener('click', function () {
 const ticketPrice = 550;
 const buttonsTicket = document.getElementsByClassName("btn-ticket");
 for (const buttonTicket of buttonsTicket) {
-    buttonTicket.addEventListener('click', function () {
+    buttonTicket.addEventListener('click', function (e) {
         const button = buttonTicket.innerText;
         setBackgroundColor(button)
+        const buttonClicked = buttonTicket.target;
         // decrease the total seat number and show it
         const selectSeat = getElementById('select')
         selectSeat.style.color = '#1DD100';
@@ -48,6 +49,7 @@ for (const buttonTicket of buttonsTicket) {
         const grandTotalNumber = parseInt(grandTotalElement.innerText);
         const grandTotalPrice = grandTotalNumber + ticketPrice;
         grandTotalElement.innerText = grandTotalPrice;
+
     })
 }
 
@@ -75,3 +77,29 @@ couponApplyButton.addEventListener('click', function () {
     }
 });
 
+// passenger information
+
+const nextButton = document.getElementById('next-button');
+nextButton.addEventListener('click', function () {
+    const nameField = getElementById('name').value;
+    const numberField = getElementById('number').value;
+    if (nameField === '' && numberField === '') {
+        alert('Please fill up this form')
+    }
+    else if(!nameField === '' && !numberField === '') {
+
+        hiddenElement('header-section');
+        hiddenElement('offer-section');
+        hiddenElement('ticket-section');
+        hiddenElement('footer-section');
+        showElement('con-section');
+    }
+})
+const continueButton = document.getElementById('continue');
+continueButton.addEventListener('click', function () {
+    showElement('header-section');
+    showElement('offer-section');
+    showElement('ticket-section');
+    showElement('footer-section');
+    hiddenElement('con-section');
+})
