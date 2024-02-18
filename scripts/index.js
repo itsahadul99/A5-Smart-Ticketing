@@ -5,13 +5,21 @@ document.getElementById('buy-ticket').addEventListener('click', function () {
     ticketSection.scrollIntoView()
 })
 // button selection
+let counter = 1;
 const ticketPrice = 550;
 const buttonsTicket = document.getElementsByClassName("btn-ticket");
 for (const buttonTicket of buttonsTicket) {
-    buttonTicket.addEventListener('click', function (e) {
+    buttonTicket.addEventListener('click', function () {
         const button = buttonTicket.innerText;
-        setBackgroundColor(button)
-        const buttonClicked = buttonTicket.target;
+        setBackgroundColor(button);
+        // limit seat select 
+        counter++;
+        if(counter > 5){
+            document.getElementsByClassName("btn-ticket").disabled = true;
+            alert("You can only select 4 seat at a time !!!");
+            removeBackgroundColor(button);
+            return;
+        }
         // decrease the total seat number and show it
         const selectSeat = getElementById('select')
         selectSeat.style.color = '#1DD100';
@@ -50,16 +58,16 @@ for (const buttonTicket of buttonsTicket) {
         const grandTotalPrice = grandTotalNumber + ticketPrice;
         grandTotalElement.innerText = grandTotalPrice;
 
-    })
-}
+    },{once : true})
+};
 
 // coupon apply button disable
 const couponApplyButton = getElementById('coupon-button');
 couponApplyButton.addEventListener('click', function () {
     const inputField = getElementById('coupon-field');
-    const inputFieldText = inputField.value.toLowerCase();
-    const allCouponCode = getElementById('New15').innerText.toLowerCase();
-    const coupleCoupon = getElementById('Couple20').innerText.toLowerCase();
+    const inputFieldText = inputField.value;
+    const allCouponCode = getElementById('NEW15').innerText;
+    const coupleCoupon = getElementById('Couple 20').innerText;
     // cheek if input field text is matched all coupon code 
     if (inputFieldText === allCouponCode) {
         discountFunction(0.15)
@@ -67,7 +75,7 @@ couponApplyButton.addEventListener('click', function () {
         hiddenElement('coupon-field');
     }
     else if (inputFieldText === coupleCoupon) {
-        discountFunction(0.20)
+        discountFunction(0.20);
         hiddenElement('coupon-button');
         hiddenElement('coupon-field');
     }
@@ -81,25 +89,9 @@ couponApplyButton.addEventListener('click', function () {
 
 const nextButton = document.getElementById('next-button');
 nextButton.addEventListener('click', function () {
-    const nameField = getElementById('name').value;
-    const numberField = getElementById('number').value;
-    if (nameField === '' && numberField === '') {
-        alert('Please fill up this form')
-    }
-    else if(!nameField === '' && !numberField === '') {
-
-        hiddenElement('header-section');
-        hiddenElement('offer-section');
-        hiddenElement('ticket-section');
-        hiddenElement('footer-section');
-        showElement('con-section');
-    }
+    congratulateMessage();
 })
 const continueButton = document.getElementById('continue');
 continueButton.addEventListener('click', function () {
-    showElement('header-section');
-    showElement('offer-section');
-    showElement('ticket-section');
-    showElement('footer-section');
-    hiddenElement('con-section');
+    continueBuying();
 })

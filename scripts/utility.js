@@ -2,6 +2,10 @@ function setBackgroundColor(elementId) {
     const element = document.getElementById(elementId);
     element.style.backgroundColor = '#1DD100'
 }
+function removeBackgroundColor (elementId){
+    const element = document.getElementById(elementId);
+    element.style.backgroundColor = '#D2D2D2';
+}
 function getElementById(elementId) {
     const element = document.getElementById(elementId);
     return element;
@@ -16,6 +20,7 @@ function discountFunction(value) {
     const totalPriceElement = getElementById('price-container');
     const h1 = document.createElement('h1');
     h1.innerText = "Discount";
+    h1.style.fontWeight = 'bold';
     const h2 = document.createElement('h1');
     h2.innerText = `BDT ${discountAllCoupon}`;
     totalPriceElement.appendChild(h1)
@@ -28,4 +33,18 @@ function hiddenElement(elementId) {
 function showElement(elementId){
     const element = document.getElementById(elementId)
     element.classList.remove('hidden');
+}
+function congratulateMessage(){
+    hiddenElement('header-section');
+    hiddenElement('offer-section');
+    hiddenElement('ticket-section');
+    hiddenElement('footer-section');
+    showElement('con-section');
+}
+function continueBuying(){
+    showElement('header-section');
+    showElement('offer-section');
+    showElement('ticket-section');
+    showElement('footer-section');
+    hiddenElement('con-section');
 }
